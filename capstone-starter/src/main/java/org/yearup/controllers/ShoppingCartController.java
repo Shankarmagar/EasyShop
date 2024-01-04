@@ -63,8 +63,29 @@ public class ShoppingCartController
     // add a POST method to add a product to the cart - the url should be
     // https://localhost:8080/cart/products/15 (15 is the productId to be added
     @PostMapping("/products/{productId}")
-    public void addItemToCart(Principal principal, @PathVariable int productId)
+    public void addItemToCart(Principal principal, @PathVariable int productId, HttpServletResponse response)
     {
+        if(principal == null || principal.getName() == null)
+        {
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        }
+        try {
+            // get the currently logged in username
+            String userName = principal.getName();
+            // find database user by userId
+            User user = userDao.getByUserName(userName);
+            int userId = user.getId();
+
+            int quantity = 1;
+
+            if (!shoppingCartDao.getByUserId(userId).contains(productId)) {
+                shoppingCartDao.addItem(userId, productId, quantity);
+            } else {
+                shoppingCartDao.setQuantity(userId, productId, shoppingCartDao.getByUserId(userId).get(productId).getQuantity() + quantity);
+            }
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+        }
 
     }
 
