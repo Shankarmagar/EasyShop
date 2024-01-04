@@ -1,7 +1,7 @@
 package org.yearup.data.mysql;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.yearup.controllers.ProductsController;
 import org.yearup.data.ProductDao;
 import org.yearup.data.ShoppingCartDao;
 import org.yearup.models.Product;
@@ -13,17 +13,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDao {
 
     ProductDao productDao;
-    public MySqlShoppingCartDao(DataSource dataSource) {
+    @Autowired
+    public MySqlShoppingCartDao(DataSource dataSource, ProductDao productDao) {
         super(dataSource);
+        this.productDao = productDao;
     }
-
     @Override
     public ShoppingCart getByUserId(int userId) {
 
@@ -35,10 +34,20 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
         {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, userId);
-
             ResultSet row = statement.executeQuery();
-            Map<Integer, ShoppingCartItem> res = getCartItem(row);
-            MyCart.setItems(res);
+
+            while (row.next())
+            {
+                ShoppingCartItem itemInCart = new ShoppingCartItem();
+                Product p = productDao.getById(row.getInt("product_id"));
+                int quantity = row.getInt("quantity");
+                itemInCart.setQuantity(quantity);
+                itemInCart.setProduct(p);
+
+                MyCart.add(itemInCart);
+                return MyCart;
+            }
+
             return MyCart;
         }
         catch (SQLException e)
@@ -47,23 +56,15 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
         }
     }
 
-    private Map<Integer, ShoppingCartItem> getCartItem(ResultSet row) throws SQLException {
-        Map<Integer, ShoppingCartItem> res = new HashMap<>();
-       while(row.next())
-       {
-           int productId = row.getInt("product_id");
-           int quantity = row.getInt("quantity");
+    @Override
+    public void addItem(int userId, int productId, int quantity) {
 
-           Product p = productDao.getById(productId);
-           ShoppingCartItem temp = new ShoppingCartItem();
-
-           temp.setProduct(p);
-           temp.setQuantity(quantity);
-
-           res.put(productId, temp);
-
-       }
-        return res;
     }
+
+    @Override
+    public int setQuantity(int userId, int productId, int quantity) {
+        return 0;
+    }
+
 
 }
