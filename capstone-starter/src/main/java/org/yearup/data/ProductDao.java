@@ -1,6 +1,7 @@
 package org.yearup.data;
 
 import org.yearup.models.Product;
+import org.yearup.models.Profile;
 
 import java.math.BigDecimal;
 import java.util.List;

@@ -19,6 +19,7 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/cart")
 @CrossOrigin
+@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
 public class ShoppingCartController
 {
     // a shopping cart requires
@@ -64,7 +65,7 @@ public class ShoppingCartController
     // https://localhost:8080/cart/products/15 (15 is the productId to be added
     @PostMapping("/products/{productId}")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
-    public void addItemToCart(Principal principal, @PathVariable int productId, HttpServletResponse response)
+    public ShoppingCart addItemToCart(Principal principal, @PathVariable int productId, HttpServletResponse response)
     {
         if(principal == null || principal.getName() == null)
         {
@@ -84,6 +85,7 @@ public class ShoppingCartController
             } else {
                 shoppingCartDao.setQuantity(userId, productId, shoppingCartDao.getByUserId(userId).get(productId).getQuantity() + quantity);
             }
+            return shoppingCartDao.getByUserId(userId);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
@@ -111,11 +113,21 @@ public class ShoppingCartController
 
     // add a DELETE method to clear all products from the current users cart
     // https://localhost:8080/cart
-    @DeleteMapping("")
+    @DeleteMapping
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
-            public void deleteAll(Principal principal)
+            public ShoppingCart deleteAll(Principal principal)
     {
-        
+        try {
+            // get the currently logged in username
+            String userName = principal.getName();
+            // find database user by userId
+            User user = userDao.getByUserName(userName);
+            int userId = user.getId();
+            shoppingCartDao.deleteAll(userId);
+            return shoppingCartDao.getByUserId(userId);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+        }
 
     }
 

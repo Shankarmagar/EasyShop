@@ -70,6 +70,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
             statement.setInt(3, quantity);
             statement.executeUpdate();
 
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -90,6 +91,22 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
             statement.setInt(2, userId);
             statement.setInt(3, productId);
 
+            statement.executeUpdate();
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void deleteAll(int userId) {
+        String sql = "DELETE FROM shopping_cart "+
+                " WHERE user_id = ? ;";
+        try (Connection connection = getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, userId);
             statement.executeUpdate();
 
         } catch (SQLException e) {
