@@ -150,3 +150,10 @@ ShoppingCartItem itemInCart = new ShoppingCartItem();
                 MyCart.add(itemInCart);
                 return MyCart;
 ```
+
+### Future Implementation
+
+- Adding AI to provide recommendation to user and high discount products
+- Adding payment features in user ends
+- Adding saving income in admin ends
+- Home delivery features and shipping tracking features
