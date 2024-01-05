@@ -1,5 +1,7 @@
 # EasyShop Version 2 Backend
-##### Shankar Magar
+##### Shankar Magar Software engineer intern @mango_mentor  | Google- Software Engineering Fellowship Program (G-SWEP) X Basta | AI/ML fellow @ Cornell Tech | codePath student (iOS development and android development) 
+Linkedin link
+https://www.linkedin.com/in/shankar-magar-725b671b7/
 ### Introduction
 - Welcome to the GitHub repository for EasyShop's Version 2 backend development! This repository contains the backend code for the EasyShop e-commerce platform, developed using Spring Boot and MySQL. Our aim is to enhance the existing online store with new features and bug fixes to provide a seamless shopping experience.
 
