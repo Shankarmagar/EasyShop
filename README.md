@@ -1,23 +1,28 @@
 # EasyShop Version 2 Backend
-##### Shankar Magar Software engineer intern @mango_mentor  | Google- Software Engineering Fellowship Program (G-SWEP) X Basta | AI/ML fellow @ Cornell Tech | codePath student (iOS development and android development) 
+##### Shankar Magar previously @mango_mentor as Software engineer intern  | Google- Software Engineering Fellowship Program (G-SWEP) X Basta | AI/ML fellow @ Cornell Tech | codePath student (iOS development and android development) 
 Linkedin link
 https://www.linkedin.com/in/shankar-magar-725b671b7/
 ### Introduction
 - Welcome to the GitHub repository for EasyShop's Version 2 backend development! This repository contains the backend code for the EasyShop e-commerce platform, developed using Spring Boot and MySQL. Our aim is to enhance the existing online store with new features and bug fixes to provide a seamless shopping experience.
 
-### Setup and Installation
-#### Prerequisites:
+### Get Started
+#### Setup and Installation
+##### Prerequisites:
 
 - Java Development Kit (JDK)
 - MySQL Server and Workbench
-- Git
+- git
 - Postman (for API testing)
 
 
 
 ##### Cloning the Repository:
+- Open Terminal and navigate to directory where you want to clone
+- Copy and paste following
 
+```
 git clone https://github.com/Shankarmagar/EasyShop.git
+```
 
 
 
@@ -31,8 +36,7 @@ git clone https://github.com/Shankarmagar/EasyShop.git
 ```
 src/main/resources/application.properties
 ```
-
-- copy and paste
+- edit based on your local
 ```
 datasource.url=jdbc:mysql://localhost:3306/<your database name>
 datasource.username= <Your Username>
@@ -68,7 +72,7 @@ cd src/main/java/org.yearup/EasyshopApplication
 
 
 
-##### Features
+## Features
 - User registration and login.
 - Product display by category.
 - Product search and filtering.
@@ -79,7 +83,7 @@ cd src/main/java/org.yearup/EasyshopApplication
 
 
 
-##### Bug Fixes
+## Bug Fixes
 - Search/filter functionality bug.
 - Product duplication issue.
 - Testing
