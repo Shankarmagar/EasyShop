@@ -121,8 +121,13 @@ We heavily rely on Postman for testing our API endpoints. The repository include
 
 
 
+##### Snapshot of ER diagram
+<img src="https://github.com/Shankarmagar/EasyShop/blob/main/screenshots/Screenshot%202024-01-05%20at%2011.00.55%E2%80%AFAM.png" width= 1000px height= 600px>
+
 ##### Snapshot of web application
 <img src="https://github.com/Shankarmagar/EasyShop/blob/main/screenshots/Screenshot%202024-01-05%20at%201.27.07%E2%80%AFAM.png" width= 1000px height= 600px>
+
+<img src="https://github.com/Shankarmagar/EasyShop/blob/main/screenshots/Screenshot%202024-01-05%20at%2010.59.22%E2%80%AFAM.png" width= 1000px height= 600px>
 
 ##### Snapshot of Testing in Postman 
 - Phase 1 and 2
