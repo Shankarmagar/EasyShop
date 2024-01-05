@@ -47,6 +47,7 @@ datasource.username= <Your Username>
 datasource.password=<Your Password>
 ```
 
+![ezgif.com-video-to-gif-converter-5](https://hackmd.io/_uploads/By9A66ruT.gif)
 
 
 ### Running the Application:
@@ -168,3 +169,5 @@ ShoppingCartItem itemInCart = new ShoppingCartItem();
 - Adding payment features in user ends
 - Adding saving income in admin ends
 - Home delivery features and shipping tracking features
+
+![ezgif.com-video-to-gif-converter-6](https://hackmd.io/_uploads/r1vBy0S_T.gif)
