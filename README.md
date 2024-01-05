@@ -1,5 +1,5 @@
 # EasyShop Version 2 Backend
-## Software engineer @ Mango_Mentor Shankar Ale Magar
+##### Shankar Magar
 ### Introduction
 - Welcome to the GitHub repository for EasyShop's Version 2 backend development! This repository contains the backend code for the EasyShop e-commerce platform, developed using Spring Boot and MySQL. Our aim is to enhance the existing online store with new features and bug fixes to provide a seamless shopping experience.
 
@@ -15,9 +15,7 @@
 
 ##### Cloning the Repository:
 
-```
 git clone https://github.com/Shankarmagar/EasyShop.git
-```
 
 
 
@@ -43,16 +41,14 @@ datasource.password=<Your Password>
 
 ### Running the Application:
 
-#### Navigate to the project directory
+- Navigate to the project directory
 ```
-cd \C\pluralsight\EasyShop
+cd src/main/java/org.yearup/EasyshopApplication
 ```
+- run EasyshopApplication
 
 
-#### Run the Spring Boot application
-```
-./mvnw spring-boot:run
-```
+
 #### Run the frontend
 - Navigate to capstone-web-application 
 - navigate to index.html
@@ -95,47 +91,50 @@ We heavily rely on Postman for testing our API endpoints. The repository include
 {{baseurl}} -> http://localhost:8080
 ```
 
-| Request    | API Endpoints                                        | Explain            |
-| ---------- | ----------------------------------                   | --------           |
-| ```POST``` | {{baseUrl}}/register                                 | register new user  |
-| ```POST``` | {{baseUrl}}/login                                    |  Login user        |
-| ```Get ``` | {{baseurl}}/categories                               | get all categories |
-| ```POST``` | {{baseurl}}/categories                               | Add categories     |
-| ```Get ``` | {{baseurl}}/categories/{id}                          | get particular categories |
-|```DELETE```| {{baseurl}}/categories/{id}                          | Delete particular categories |
-| ```Get ``` |  {{baseUrl}}/products?cat=1&minPrice=80&maxPrice=90  | Search the products based on user selection | 
+| Request      | API Endpoints                                      | Explain                                     |
+| ------------ | -------------------------------------------------- | ------------------------------------------- |
+| ```POST```   | {{baseUrl}}/register                               | register new user                           |
+| ```POST```   | {{baseUrl}}/login                                  | Login user                                  |
+| ```GET ```   | {{baseurl}}/categories                             | get all categories                          |
+| ```POST```   | {{baseurl}}/categories                             | Add categories                              |
+| ```GET ```   | {{baseurl}}/categories/{id}                        | get particular categories                   |
+| ```PUT ```   | {{baseurl}}/categories/{id}                        | Update categories                           |
+| ```DELETE``` | {{baseurl}}/categories/{id}                        | Delete particular categories                |
+| ```GET ```   | {{baseurl}}/profile                                | get profile details                         |
+| ```PUT ```   | {{baseurl}}/profile                                | edit profile                                |
+| ```GET ```   | {{baseurl}}/cart                                   | get all the items in cart                   |
+| ```DELETE``` | {{baseurl}}/cart                                   |   clear the cart                              |
+| ```GET ```   | {{baseUrl}}/products?cat=1&minPrice=80&maxPrice=90 | Search the products based on user selection |
 
 
-Project Structure
-src/main/java - Contains the source code.
-src/test/java - Contains the unit tests.
-database - Contains the SQL script for database setup.
+##### Project Structure
+- src/main/java - Contains the source code.
+- src/test/java - Contains the unit tests.
+- database - Contains the SQL script for database setup.
 
 
 
 ##### Contributions
-This project is part of a capstone solo project. Contributions are not currently accepted, but feedback and suggestions are always welcome.
+- This project is part of a capstone solo project. Contributions are not currently accepted, but feedback and suggestions are always welcome.
 
 
 
-### About the Developer
 
 
 ##### Snapshot of web application
-<img src="https://github.com/Shankarmagar/EasyShop/blob/main/screenshots/Screenshot%202024-01-05%20at%201.27.07%E2%80%AFAM.png" width= 500px height= 500px>
+<img src="https://github.com/Shankarmagar/EasyShop/blob/main/screenshots/Screenshot%202024-01-05%20at%201.27.07%E2%80%AFAM.png" width= 1000px height= 600px>
 
 ##### Snapshot of Testing in Postman 
 - Phase 1 and 2
-<img src= "https://github.com/Shankarmagar/EasyShop/blob/main/screenshots/Screenshot%202024-01-05%20at%201.32.18%E2%80%AFAM.png" width= 500px height= 500px>
+<img src= "https://github.com/Shankarmagar/EasyShop/blob/main/screenshots/Screenshot%202024-01-05%20at%201.32.18%E2%80%AFAM.png" width= 1000px height= 600px>
 
 - Phase 3 and 4
-<img src = "https://github.com/Shankarmagar/EasyShop/blob/main/screenshots/Screenshot%202024-01-05%20at%201.34.24%E2%80%AFAM.png" width= 500px height= 500px>
+<img src = "https://github.com/Shankarmagar/EasyShop/blob/main/screenshots/Screenshot%202024-01-05%20at%201.34.24%E2%80%AFAM.png" width= 1000px height= 600px>
 
 
 
 
 ### Interesting Code Snippet
-
 ```
 ShoppingCartItem itemInCart = new ShoppingCartItem();
                 Product p = productDao.getById(row.getInt("product_id"));
