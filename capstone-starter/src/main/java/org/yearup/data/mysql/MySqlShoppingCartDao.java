@@ -58,27 +58,29 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
 
     @Override
     public void addItem(int userId, int productId, int quantity) {
+
         String sql = """
                 INSERT INTO shopping_cart
                 VALUES(?, ?, ?);
                 """;
 
         try (Connection connection = getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, userId);
-            statement.setInt(2, productId);
-            statement.setInt(3, quantity);
-            statement.executeUpdate();
+            PreparedStatement s = connection.prepareStatement(sql);
+            s.setInt(1, userId);
+            s.setInt(2, productId);
+            s.setInt(3, quantity);
 
+            int row = s.executeUpdate();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override
-    public void setQuantity(int userId, int productId, int quantity) {
+    public int setQuantity(int userId, int productId, int quantity) {
+        int q = 0;
+
         String sql = """
                 UPDATE shopping_cart
                 SET quantity = ?
@@ -86,18 +88,17 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
                 """;
 
         try (Connection connection = getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, quantity);
-            statement.setInt(2, userId);
-            statement.setInt(3, productId);
+            PreparedStatement s = connection.prepareStatement(sql);
+            s.setInt(1, quantity);
+            s.setInt(2, userId);
+            s.setInt(3, productId);
 
-            statement.executeUpdate();
-
+            q = s.executeUpdate();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+        return q;
     }
 
     @Override
