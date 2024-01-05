@@ -155,6 +155,7 @@ ShoppingCartItem itemInCart = new ShoppingCartItem();
 
 ### Future Implementation
 
+- Fixing bugs and completing phase 5
 - Adding AI to provide recommendation to user and high discount products
 - Adding payment features in user ends
 - Adding saving income in admin ends
