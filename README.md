@@ -1,5 +1,5 @@
 # EasyShop Version 2 Backend
-##### Shankar Magar previously @mango_mentor as Software engineer intern  | Google- Software Engineering Fellowship Program (G-SWEP) X Basta | AI/ML fellow @ Cornell Tech | codePath student (iOS development and android development) 
+##### author ;- Shankar Magar previously @mango_mentor as Software engineer intern  | Google- Software Engineering Fellowship Program (G-SWEP) X Basta | AI/ML fellow @ Cornell Tech | codePath student (iOS development and android development) 
 Linkedin link
 https://www.linkedin.com/in/shankar-magar-725b671b7/
 ### Introduction
