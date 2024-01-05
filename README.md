@@ -4,7 +4,11 @@ Linkedin link
 https://www.linkedin.com/in/shankar-magar-725b671b7/
 ### Introduction
 - Welcome to the GitHub repository for EasyShop's Version 2 backend development! This repository contains the backend code for the EasyShop e-commerce platform, developed using Spring Boot and MySQL. Our aim is to enhance the existing online store with new features and bug fixes to provide a seamless shopping experience.
-<img src="https://pin.it/4HSBEVr" width= 1000px>
+
+![ezgif.com-video-to-gif-converter-4](https://hackmd.io/_uploads/SkZx66r_T.gif)
+
+
+
 ### Get Started
 #### Setup and Installation
 ##### Prerequisites:
