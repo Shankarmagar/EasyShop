@@ -47,6 +47,7 @@ datasource.username= <Your Username>
 datasource.password=<Your Password>
 ```
 
+![ezgif.com-video-to-gif-converter-5](https://hackmd.io/_uploads/By9A66ruT.gif)
 
 
 ### Running the Application:
